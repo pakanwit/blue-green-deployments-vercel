@@ -94,6 +94,7 @@ function selectCanaryDomain(canaryConfig: CanaryConfig) {
   if (/^http/.test(selected || "")) {
     return new URL(selected || "").hostname;
   }
+  console.log("selected", selected);
   return selected;
 }
 
