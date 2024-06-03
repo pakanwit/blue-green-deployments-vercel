@@ -46,10 +46,8 @@ export async function middleware(req: NextRequest) {
     return NextResponse.next();
   }
   // Get the canary configuration from Edge Config.
-  const canaryConfig: CanaryConfig = await get<CanaryConfig>(
-    "canary-configuration"
-  );
-  if (!CanaryConfig) {
+  const canaryConfig = await get<CanaryConfig>("canary-configuration");
+  if (!canaryConfig) {
     console.warn("No canary configuration found");
     return NextResponse.next();
   }
